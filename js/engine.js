@@ -3,20 +3,16 @@
  * draws the initial game board on the screen, and then calls the update and
  * render methods on your player and enemy objects (defined in your app.js).
  *
- * A game engine works by drawing the entire game screen over and over, kind of
- * like a flipbook you may have created as a kid. When your player moves across
- * the screen, it may look like just that image/character is moving or being
- * drawn but that is not the case. What's really happening is the entire "scene"
- * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
- * writing app.js a little simpler to work with.
+ A game engine works by drawing the entire game screen over and over. When your player moves across the screen, what's really happening is the entire "scene" is being drawn over and over, presenting the illusion of animation.
+
+ This engine makes the canvas' context (ctx) object globally available to make writing app.js a little simpler to work with.
  */
 
 var Engine = (function(global) {
   /* Predefine the variables we'll be using within this scope,
-   * create the canvas element, grab the 2D context for that canvas
-   * set the canvas elements height/width and add it to the DOM.
+   * create the canvas element, grab the 2D context for that canvas,
+   * and set the canvas elements height/width and add it to the DOM.
    */
   var doc = global.document,
     win = global.window,
@@ -33,10 +29,7 @@ var Engine = (function(global) {
    */
   function main() {
     /* Get our time delta information which is required if your game
-     * requires smooth animation. Because everyone's computer processes
-     * instructions at different speeds we need a constant value that
-     * would be the same for everyone (regardless of how fast their
-     * computer is) - hurray time!
+     * requires smooth animation.
      */
     var now = Date.now(),
       dt = (now - lastTime) / 1000.0;
@@ -173,7 +166,8 @@ var Engine = (function(global) {
     'images/water-block.png',
     'images/grass-block.png',
     'images/enemy-bug.png',
-    'images/char-boy.png'
+    'images/char-boy.png',
+    'images/char-pink-girl.png'
   ]);
   Resources.onReady(init);
 
