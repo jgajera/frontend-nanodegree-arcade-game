@@ -44,6 +44,7 @@ Not accepting contributions! Feel free to open an issue if you find one. Thanks!
 
 ## Authors
 - Richard Kalehoff from Udacity provided the starter code in the [Udacity repo](https://github.com/udacity/frontend-nanodegree-arcade-game)
+- Me! If I do say so myself ;-)
 
 ## MiscNotes
 This project is based on the starter code from Udacity FEND's repo for this project.
