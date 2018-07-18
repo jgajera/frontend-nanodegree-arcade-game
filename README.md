@@ -50,5 +50,9 @@ Not accepting contributions! Feel free to open an issue if you find one. Thanks!
 This project is based on the starter code from Udacity FEND's repo for this project.
 Here is the [rubric for this project](https://review.udacity.com/#!/projects/2696458597/rubric), and some specific instructions from Udacity:
 ```
-Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+Make sure the functions you write are **object-oriented** -
+either class functions (like Player and Enemy) or class prototype
+functions such as Enemy.prototype.checkCollisions, and that the
+keyword 'this' is used appropriately within your class and class
+prototype functions to refer to the object the function is called upon.
 ```
