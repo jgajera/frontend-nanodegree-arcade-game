@@ -30,6 +30,12 @@ You should be able to open up index.html in your browser and play with the game 
 Use the arrow keys to move the Player. If you encounter an enemy, try to dodge them. Otherwise, if the enemy touches the Player, the game restarts. Good luck!
 ## Resources
 I used the following resources:
+- [Ryan Waite's intro to project YT video](https://www.youtube.com/watch?v=0ovAyu3ZvFQ)
+- [MDN docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [MDN docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+- [MDN docs: Inheritance in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
+- [MDN docs: Details of the object model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
+- [Udacity project guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
 - [Google Fonts: Coda](https://fonts.google.com/)
 - No Javascript library was used in this project, it was written in vanilla JS.
 
@@ -41,8 +47,7 @@ Not accepting contributions! Feel free to open an issue if you find one. Thanks!
 
 ## MiscNotes
 This project is based on the starter code from Udacity FEND's repo for this project.
-
-
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
-
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Here is the [rubric for this project](https://review.udacity.com/#!/projects/2696458597/rubric), and some specific instructions from Udacity:
+```
+Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+```
