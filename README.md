@@ -1,5 +1,3 @@
-frontend-nanodegree-arcade-game
-===============================
 # Arcade Game
 This game is like Frogger! If a bad object hits your player, the player dies. If you can cross the grid without getting hit by a bad object, you win! YAY!
 
