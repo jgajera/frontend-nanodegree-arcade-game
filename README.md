@@ -47,7 +47,8 @@ Not accepting contributions! Feel free to open an issue if you find one. Thanks!
 - Me! If I do say so myself ;-)
 
 ## MiscNotes
-This project is based on the starter code from Udacity FEND's repo for this project.
+This project is based on the starter code from Udacity FEND's repo for this project. 
+
 Here is the [rubric for this project](https://review.udacity.com/#!/projects/2696458597/rubric), and some specific instructions from Udacity:
 ```
 Make sure the functions you write are **object-oriented** -
