@@ -15,6 +15,7 @@ To get a copy of this repo, please follow these instructions:
 You'll want `git` installed on your machine. For help setting up `git`, follow instructions from [this free course from Udacity](https://www.udacity.com/course/version-control-with-git--ud123). Also, familiarity with HTML, CSS, and Javascript will set you up for success.
 ### Installation/Running the Game
 Fork this repo into your own account. If you'd prefer not:
+
 Clone with SSH to your local machine
 ```
 git@github.com:jgajera/frontend-nanodegree-arcade-game.git
