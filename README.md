@@ -14,6 +14,7 @@ To get a copy of this repo, please follow these instructions:
 ### Prerequisites
 You'll want `git` installed on your machine. For help setting up `git`, follow instructions from [this free course from Udacity](https://www.udacity.com/course/version-control-with-git--ud123). Also, familiarity with HTML, CSS, and Javascript will set you up for success.
 ### Installation/Running the Game
+Fork this repo into your own account. If you'd prefer not:
 Clone with SSH to your local machine
 ```
 git@github.com:jgajera/frontend-nanodegree-arcade-game.git
@@ -36,7 +37,6 @@ I used the following resources:
 - [MDN docs: Inheritance in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
 - [MDN docs: Details of the object model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
 - [Udacity project guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
-- [Google Fonts: Coda](https://fonts.google.com/)
 - No Javascript library was used in this project, it was written in vanilla JS.
 
 ## Contributing
