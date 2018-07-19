@@ -26,6 +26,8 @@ Enemy.prototype.render = function() {
 
 
 // Enemies our player must avoid
+
+// when enemy hits edge of the playing field, it should disappear
 class Enemy {
   constructor() {
     // Variables applied to each of our instances go here,
@@ -56,21 +58,29 @@ class Enemy {
 // This class requires an update(), render() and a handleInput() method
 // since we are letting the user control the player only.
 
+// player cannot leave the bounds of the box - how can we create a 'fence'?
+
 // // player class function
 class Player {
   // .... add constructor function
-  constructor(args) {
+  constructor(x,y) {
     // ....... with properties
-    this.x;
-    this.y;
+    this.x=x;
+    this.y=y;
     this.sprite = 'images/char-pink-girl.png';
     // ....... and methods
-    this.update = function(dt) {};
+    this.update = function(dt) {
+      // player should move at a constant speed, block-to-block
+    };
     this.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
     this.handleInput = function() {
-      // player must move depending on what key the user hit
+      // player must move a block depending on what key the user hit
+      // ... key up
+      // ... key down
+      // ... key left
+      // ... key right
     };
   }
 }
@@ -78,14 +88,24 @@ class Player {
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-var player = new Player;
+let player = new Player;
 // should enemies have different dt multipliers so they move at various speeds?
-var enemy1 = new Enemy;
-var enemy2 = new Enemy;
-var enemy3 = new Enemy;
-var enemy4 = new Enemy;
+let enemy1 = new Enemy;
+let enemy2 = new Enemy;
+let enemy3 = new Enemy;
+let enemy4 = new Enemy;
 // ... Place all enemy objects in an array called allEnemies
-var allEnemies = [enemy1, enemy2, enemy3, enemy4];
+let allEnemies = [enemy1, enemy2, enemy3, enemy4];
+
+
+// collision function - when player hits the enemy,
+// the player restarts at the bottom of the grid
+
+// ... when enemy and player starts touching, reset player
+// ... track the corner positions of each enemy and player
+// ... update variables for each entity on position
+// ... when variables are equal, call collision function
+
 
 
 // Listener function for key presses. Sends the keys to your
