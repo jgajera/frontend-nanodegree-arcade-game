@@ -25,14 +25,16 @@ Enemy.prototype.render = function() {
 */
 
 
+
 // Enemies our player must avoid
 
 // when enemy hits edge of the playing field, it should disappear
 class Enemy {
-  constructor() {
+  constructor(x, y, dt) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x = x;
+    this.y = y;
 
 
     // The image/sprite for our enemies, this uses
@@ -45,6 +47,23 @@ class Enemy {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
+      function animate() {
+        requestAnimationFrame(animate);
+        draw();
+      }
+
+      function draw() {
+        var x = Math.sin(dt) * 96 + 38;
+        var y = Math.cos(dt * 0.9) * 96 + 38;
+
+        context.fillStyle = 'rgb(245,245,245)';
+        context.fillRect(0, 0, 255, 255);
+        context.fillStyle = 'rgb(255,0,0)';
+        context.beginPath();
+        context.arc(x, y, 10, 0, Math.PI * 2, true);
+        context.closePath();
+        context.fill();
+      }
     };
 
     // Draw the enemy on the screen, required method for game
@@ -63,11 +82,12 @@ class Enemy {
 // // player class function
 class Player {
   // .... add constructor function
-  constructor(x,y) {
+  constructor(x, y) {
     // ....... with properties
-    this.x=x;
-    this.y=y;
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/char-pink-girl.png';
+
     // ....... and methods
     this.update = function(dt) {
       // player should move at a constant speed, block-to-block
@@ -88,14 +108,13 @@ class Player {
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-let player = new Player;
+let player = new Player(200, 300);
 // should enemies have different dt multipliers so they move at various speeds?
-let enemy1 = new Enemy;
-let enemy2 = new Enemy;
-let enemy3 = new Enemy;
-let enemy4 = new Enemy;
+let enemy1 = new Enemy(0, 65,15);
+let enemy2 = new Enemy(0, 145);
+let enemy3 = new Enemy(0, 225);
 // ... Place all enemy objects in an array called allEnemies
-let allEnemies = [enemy1, enemy2, enemy3, enemy4];
+let allEnemies = [enemy1, enemy2, enemy3];
 
 
 // collision function - when player hits the enemy,
