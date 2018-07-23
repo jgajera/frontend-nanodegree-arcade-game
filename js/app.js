@@ -42,8 +42,8 @@ class Enemy {
     this.x = x;
     this.y = y;
     dt = dt;
-    const speed=getRandomInt(85,155);
-    console.log(speed);
+    // get random speed so all enemies are instantiated with random speeds
+    const speed = getRandomInt(75, 205);
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -57,13 +57,13 @@ class Enemy {
       // all computers.
 
       // if enemy is within the right bound, move em!
-      if (this.x < 450) {
+      if (this.x < 500) {
         this.x += speed * dt;
       }
 
       // if enemy reached the right bound, reset them to the left side again
-      if (this.x >= 450) {
-        this.x = x - 50;
+      if (this.x >= 500) {
+        this.x = x - 100;
       }
     };
 
@@ -78,8 +78,7 @@ class Enemy {
 // This class requires an update(), render() and a handleInput() method
 // since we are letting the user control the player only.
 
-// player cannot leave the bounds of the box - how can we create a 'fence'?
-
+let startX, startY;
 // // player class function
 class Player {
   // .... add constructor function
@@ -88,6 +87,8 @@ class Player {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-pink-girl.png';
+    let startX = x;
+    let startY = y;
 
     // ....... and methods
     this.update = function(dt) {
@@ -100,41 +101,67 @@ class Player {
       // ... when variables are equal, call collision function
 
       // check for win by checking position
+      if (this.y === -25) {
+        console.log('you win!');
+        window.cancelAnimationFrame(Engine);
+      }
+
+      for (let enemy of allEnemies) {
+        let enemyX = enemy.x;
+        let enemyY = enemy.y;
+        if (this.y === enemyY && (this.x<Math.ceil(enemyX)+10 && this.x > Math.floor(enemyX)-10)) {
+          console.log('collision');
+          this.reset();
+        }
+      }
 
     };
     this.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
+
     this.handleInput = function(input) {
       // player must move a block depending on what key the user hit
       // && conditions handle canvas boundaries for the player
+
       // ... key up && conditional for top of grid
       if (input === "up" && this.y > 0) {
         this.y -= 80;
+        return this.y;
       }
       // ... key down && conditional for bottom of grid
       else if (input === "down" && this.y < 375) {
         this.y += 80;
+        return this.y;
       }
       // ... key left && conditional for left side of grid
       else if (input === "left" && this.x > 0) {
         this.x -= 100;
+        return this.x;
+
       }
       // ... key right && conditional for right side of grid
       else if (input === "right" && this.x < 400) {
         this.x += 100;
+        return this.x;
       }
     };
 
     // ... when enemy and player start touching, reset player
-
+    this.reset = function() {
+      this.y = startY;
+      this.x = startX;
+      console.log(this.x, this.y);
+    }
   }
+
+
 }
 
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-const player = new Player(200, 375);
+const player = new Player(200, 385);
 // ... Place the enemy objects in new variables
 const enemy1 = new Enemy(0, 65);
 const enemy2 = new Enemy(0, 145);
