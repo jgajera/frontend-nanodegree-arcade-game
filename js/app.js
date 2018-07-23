@@ -91,20 +91,21 @@ class Player {
     };
     this.handleInput = function(input) {
       // player must move a block depending on what key the user hit
+      // && conditions handle canvas boundaries for the player
       // ... key up
-      if (input === "up") {
+      if (input === "up" && this.y>0) {
         this.y -= 80;
       }
       // ... key down
-      else if (input === "down") {
+      else if (input === "down" && this.y<375) {
         this.y += 80;
       }
       // ... key left
-      else if (input === "left") {
+      else if (input === "left" && this.x>0) {
         this.x -= 100;
       }
       // ... key right
-      else if (input === "right") {
+      else if (input === "right" && this.x<400) {
         this.x += 100;
       }
     };
@@ -117,7 +118,7 @@ class Player {
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-const player = new Player(200, 300);
+const player = new Player(200, 375);
 // should enemies have different dt multipliers so they move at various speeds?
 const enemy1 = new Enemy(0, 65, 15);
 const enemy2 = new Enemy(0, 145, 10);
