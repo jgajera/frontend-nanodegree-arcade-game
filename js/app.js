@@ -99,23 +99,29 @@ class Player {
       // ... track the corner positions of each enemy and player
       // ... update variables for each entity on position
       // ... when variables are equal, call collision function
-
-      // check for win by checking position
-      if (this.y === -25) {
-        console.log('you win!');
-        window.cancelAnimationFrame(Engine);
-      }
-
       for (let enemy of allEnemies) {
         let enemyX = enemy.x;
         let enemyY = enemy.y;
-        if (this.y === enemyY && (this.x<Math.ceil(enemyX)+10 && this.x > Math.floor(enemyX)-10)) {
+        if (this.y === enemyY && (this.x < Math.ceil(enemyX) + 10 && this.x > Math.floor(enemyX) - 10)) {
           console.log('collision');
           this.reset();
         }
       }
 
+      // check for win by checking position
+      if (this.y === -15) {
+        console.log('you win!');
+        youWin();
+        window.cancelAnimationFrame(main);
+      }
+
+      function youWin() {
+        document.getElementById('modal-link').click();
+      }
+
     };
+
+
     this.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
