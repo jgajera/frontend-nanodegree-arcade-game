@@ -1,13 +1,24 @@
 body {
-    text-align: center;
+  text-align: center;
 }
-
 
 /*
 
 "You Win!" modal CSS
 
 */
+
+.modal-body h1 {
+  font-family: "Merienda", sans-serif;
+}
+
+.modal-body p {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#modal-link {
+  display: none;
+}
 
 .modal-window {
   position: fixed;
@@ -52,6 +63,7 @@ body {
   top: 0;
   width: 70px;
   text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .modal-close:hover {
