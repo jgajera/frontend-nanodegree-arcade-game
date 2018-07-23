@@ -33,10 +33,10 @@ Use the arrow keys to move the Player. If you encounter an enemy, try to dodge t
 ## Resources
 I used the following resources:
 - [Ryan Waite's intro to project YT video](https://www.youtube.com/watch?v=0ovAyu3ZvFQ)
-- [MDN docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-- [MDN docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 - [MDN docs: Inheritance in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
-- [MDN docs: Details of the object model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
+- [MDN docs: Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+- [MDN docs: Gamedev Canvas tutorial](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball)
+- [MDN docs: cancel animation](https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame)
 - [Udacity project guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
 - No Javascript library was used in this project, it was written in vanilla JS.
 
