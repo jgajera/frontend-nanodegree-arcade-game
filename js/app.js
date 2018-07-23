@@ -47,23 +47,8 @@ class Enemy {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
-      function animate() {
-        requestAnimationFrame(animate);
-        draw();
-      }
 
-      function draw() {
-        var x = Math.sin(dt) * 96 + 38;
-        var y = Math.cos(dt * 0.9) * 96 + 38;
 
-        context.fillStyle = 'rgb(245,245,245)';
-        context.fillRect(0, 0, 255, 255);
-        context.fillStyle = 'rgb(255,0,0)';
-        context.beginPath();
-        context.arc(x, y, 10, 0, Math.PI * 2, true);
-        context.closePath();
-        context.fill();
-      }
     };
 
     // Draw the enemy on the screen, required method for game
@@ -91,39 +76,56 @@ class Player {
     // ....... and methods
     this.update = function(dt) {
       // player should move at a constant speed, block-to-block
+      // check for collision... collision function - when player hits the enemy,
+      // the player restarts at the bottom of the grid
+
+      // ... track the corner positions of each enemy and player
+      // ... update variables for each entity on position
+      // ... when variables are equal, call collision function
+
+      // check for win by checking position
+
     };
     this.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
-    this.handleInput = function() {
+    this.handleInput = function(input) {
       // player must move a block depending on what key the user hit
       // ... key up
+      if (input === "up") {
+        this.y -= 80;
+      }
       // ... key down
+      else if (input === "down") {
+        this.y += 80;
+      }
       // ... key left
+      else if (input === "left") {
+        this.x -= 100;
+      }
       // ... key right
+      else if (input === "right") {
+        this.x += 100;
+      }
     };
+
+    // ... when enemy and player starts touching, reset player
+
   }
 }
 
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-let player = new Player(200, 300);
+const player = new Player(200, 300);
 // should enemies have different dt multipliers so they move at various speeds?
-let enemy1 = new Enemy(0, 65,15);
-let enemy2 = new Enemy(0, 145);
-let enemy3 = new Enemy(0, 225);
+const enemy1 = new Enemy(0, 65, 15);
+const enemy2 = new Enemy(0, 145, 10);
+const enemy3 = new Enemy(0, 225, 20);
 // ... Place all enemy objects in an array called allEnemies
-let allEnemies = [enemy1, enemy2, enemy3];
+const allEnemies = [enemy1, enemy2, enemy3];
 
 
-// collision function - when player hits the enemy,
-// the player restarts at the bottom of the grid
-
-// ... when enemy and player starts touching, reset player
-// ... track the corner positions of each enemy and player
-// ... update variables for each entity on position
-// ... when variables are equal, call collision function
 
 
 

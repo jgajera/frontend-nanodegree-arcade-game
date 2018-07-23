@@ -14,11 +14,13 @@ var Engine = (function(global) {
    * create the canvas element, grab the 2D context for that canvas,
    * and set the canvas elements height/width and add it to the DOM.
    */
-  var doc = global.document,
-    win = global.window,
+  var doc = document,
     canvas = doc.createElement('canvas'),
     ctx = canvas.getContext('2d'),
-    lastTime;
+    lastTime,
+    win = global.window;
+
+
 
   canvas.width = 500;
   canvas.height = 600;
