@@ -22,7 +22,7 @@ var Engine = (function(global) {
 
 
 
-  canvas.width = 500;
+  canvas.width = 505;
   canvas.height = 600;
   doc.body.appendChild(canvas);
 
