@@ -24,6 +24,12 @@ Enemy.prototype.render = function() {
 };
 */
 
+// function to generate a random whole number for randomizing enemy speeds
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
 
 // Enemies our player must avoid
@@ -35,7 +41,9 @@ class Enemy {
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-
+    dt = dt;
+    const speed=getRandomInt(85,155);
+    console.log(speed);
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -48,7 +56,15 @@ class Enemy {
       // which will ensure the game runs at the same speed for
       // all computers.
 
+      // if enemy is within the right bound, move em!
+      if (this.x < 450) {
+        this.x += speed * dt;
+      }
 
+      // if enemy reached the right bound, reset them to the left side again
+      if (this.x >= 450) {
+        this.x = x - 50;
+      }
     };
 
     // Draw the enemy on the screen, required method for game
@@ -92,25 +108,25 @@ class Player {
     this.handleInput = function(input) {
       // player must move a block depending on what key the user hit
       // && conditions handle canvas boundaries for the player
-      // ... key up
-      if (input === "up" && this.y>0) {
+      // ... key up && conditional for top of grid
+      if (input === "up" && this.y > 0) {
         this.y -= 80;
       }
-      // ... key down
-      else if (input === "down" && this.y<375) {
+      // ... key down && conditional for bottom of grid
+      else if (input === "down" && this.y < 375) {
         this.y += 80;
       }
-      // ... key left
-      else if (input === "left" && this.x>0) {
+      // ... key left && conditional for left side of grid
+      else if (input === "left" && this.x > 0) {
         this.x -= 100;
       }
-      // ... key right
-      else if (input === "right" && this.x<400) {
+      // ... key right && conditional for right side of grid
+      else if (input === "right" && this.x < 400) {
         this.x += 100;
       }
     };
 
-    // ... when enemy and player starts touching, reset player
+    // ... when enemy and player start touching, reset player
 
   }
 }
@@ -119,12 +135,13 @@ class Player {
 // Instantiate objects.
 // ... Place the player object in a variable called player
 const player = new Player(200, 375);
-// should enemies have different dt multipliers so they move at various speeds?
-const enemy1 = new Enemy(0, 65, 15);
-const enemy2 = new Enemy(0, 145, 10);
-const enemy3 = new Enemy(0, 225, 20);
+// ... Place the enemy objects in new variables
+const enemy1 = new Enemy(0, 65);
+const enemy2 = new Enemy(0, 145);
+const enemy3 = new Enemy(0, 225);
 // ... Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3];
+console.log(allEnemies);
 
 
 
