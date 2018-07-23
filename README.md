@@ -37,6 +37,8 @@ I used the following resources:
 - [MDN docs: Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 - [MDN docs: Gamedev Canvas tutorial](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball)
 - [MDN docs: cancel animation](https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame)
+- [all CSS modal](https://ctrlq.org/code/20083-modal-popup-css)
+- [Google Fonts: Merienda and Source Sans Pro](https://fonts.google.com/?selection.family=Merienda|Source+Sans+Pro:300)
 - [Udacity project guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
 - No Javascript library was used in this project, it was written in vanilla JS.
 
