@@ -2,6 +2,7 @@ body {
   text-align: center;
 }
 
+
 /* "You Win!" modal CSS */
 
 .modal-body h1 {
@@ -49,7 +50,7 @@ body {
   font-weight: bold;
 }
 
-.modal-close {
+#modal-close {
   color: #aaa;
   line-height: 50px;
   font-size: 80%;
@@ -60,9 +61,10 @@ body {
   width: 70px;
   text-decoration: none;
   font-family: "Source Sans Pro", sans-serif;
+  display: none;
 }
 
-.modal-close:hover {
+#modal-close:hover {
   color: #000;
 }
 
