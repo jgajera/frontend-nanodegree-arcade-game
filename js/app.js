@@ -34,13 +34,13 @@ var config = {
   }
 }
 
+// super class with common properties shared between both subclasses
 class Commonalities {
   constructor(initX, initY) {
     this.x = initX;
     this.y = initY;
   }
 }
-
 
 // Enemies our player must avoid
 class Enemy extends Commonalities {
@@ -62,7 +62,7 @@ class Enemy extends Commonalities {
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
-    this.update = function(dt) {
+    this.update = function (dt) {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
@@ -79,7 +79,7 @@ class Enemy extends Commonalities {
     };
 
     // Draw the enemy on the screen, required method for game
-    this.render = function() {
+    this.render = function () {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
   }
@@ -88,7 +88,7 @@ class Enemy extends Commonalities {
 // congrats modal close on page load, if open from previous game
 document.getElementById('modal-close').click();
 // congrats modal reload page if user wants to play again
-document.getElementById('play-again').addEventListener('click', function() {
+document.getElementById('play-again').addEventListener('click', function () {
   window.location.reload();
 });
 
@@ -108,7 +108,7 @@ class Player extends Commonalities {
     this.wonGame = false;
 
     // ....... and methods
-    this.update = function(dt) {
+    this.update = function (dt) {
       // player should move at a constant speed, block-to-block
       // check for collision... collision function - when player hits // the enemy, the player restarts at the bottom of the grid
 
@@ -136,11 +136,11 @@ class Player extends Commonalities {
     };
 
     // renders our player image
-    this.render = function() {
+    this.render = function () {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 
-    this.handleInput = function(input) {
+    this.handleInput = function (input) {
       // player must move a block depending on what key the user
       // pressed. && conditions handle canvas boundaries for the player
 
@@ -164,7 +164,7 @@ class Player extends Commonalities {
 
     // ... when enemy and player start touching, reset player
     // back to original position
-    this.reset = function() {
+    this.reset = function () {
       this.y = startY;
       this.x = startX;
     };
@@ -183,7 +183,7 @@ const allEnemies = [enemy1, enemy2, enemy3];
 
 // Listener function for key presses. Sends the keys to your
 // Player.handleInput() method. Don't modify this!!!
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
   var allowedKeys = {
     37: 'left',
     38: 'up',
