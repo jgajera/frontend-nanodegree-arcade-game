@@ -1,5 +1,7 @@
+// enable strict mode so JS can tell me how dumb I am!
 "use strict";
 
+// set initial object to be reused/used throughout this file's code
 var config = {
   "player": {
     "initialX": 200,
@@ -21,23 +23,28 @@ var config = {
     "square_width": 101,
     "board_width": 505,
     "y_movement": 80,
-    "win_pos":-15,
-    "top_left_bound":0,
-    "right_bound":400,
-    "bottom_bound":375
+    "win_pos": -15,
+    "top_left_bound": 0,
+    "right_bound": 400,
+    "bottom_bound": 375
   },
   "random_int": {
-    "low_bound":75,
-    "high_bound":205
+    "low_bound": 75,
+    "high_bound": 205
+  }
+}
+
+class Commonalities {
+  constructor(initX, initY) {
+    this.x = initX;
+    this.y = initY;
   }
 }
 
 
 // Enemies our player must avoid
-
-// when enemy hits edge of the playing field, it should disappear
-class Enemy {
-  constructor(x, y, dt) {
+class Enemy extends Commonalities {
+  constructor(x, y) {
     // function to generate a random whole number for randomizing enemy speeds
     function getRandomInt(min, max) {
       //The maximum is exclusive and the minimum is inclusive
@@ -45,9 +52,7 @@ class Enemy {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
     }
-    // Variables applied to each of our instances go here,
-    this.x = x;
-    this.y = y;
+    super(x, y);
     // init speeds so all enemies are instantiated with random speeds
     const speed = getRandomInt(config.random_int.low_bound, config.random_int.high_bound);
 
@@ -92,15 +97,14 @@ document.getElementById('play-again').addEventListener('click', function() {
 // control the player only.
 
 // // player class function
-class Player {
+class Player extends Commonalities {
   // .... add constructor function
   constructor(x, y) {
-    // ....... with properties
-    this.x = x;
-    this.y = y;
-    this.sprite = 'images/char-pink-girl.png';
+    super(x, y);
     let startX = x;
     let startY = y;
+    // ....... with properties
+    this.sprite = 'images/char-pink-girl.png';
     this.wonGame = false;
 
     // ....... and methods
