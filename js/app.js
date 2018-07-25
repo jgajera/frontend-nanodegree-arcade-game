@@ -1,3 +1,38 @@
+"use strict";
+
+var config = {
+  "player": {
+    "initialX": 200,
+    "initialY": 385
+  },
+  "enemy1": {
+    "initialX": 0,
+    "initialY": 65
+  },
+  "enemy2": {
+    "initialX": 0,
+    "initialY": 145
+  },
+  "enemy3": {
+    "initialX": 0,
+    "initialY": 225
+  },
+  "board": {
+    "square_width": 101,
+    "board_width": 505,
+    "y_movement": 80,
+    "win_pos":-15,
+    "top_left_bound":0,
+    "right_bound":400,
+    "bottom_bound":375
+  },
+  "random_int": {
+    "low_bound":75,
+    "high_bound":205
+  }
+}
+
+
 // Enemies our player must avoid
 
 // when enemy hits edge of the playing field, it should disappear
@@ -14,7 +49,7 @@ class Enemy {
     this.x = x;
     this.y = y;
     // init speeds so all enemies are instantiated with random speeds
-    const speed = getRandomInt(75, 205);
+    const speed = getRandomInt(config.random_int.low_bound, config.random_int.high_bound);
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -28,13 +63,13 @@ class Enemy {
       // all computers.
 
       // if enemy is within the right boundary, move em right!
-      if (this.x < 500) {
+      if (this.x < config.board.board_width) {
         this.x += speed * dt;
       }
 
       // if enemy reached the right boundary, reset them to the left side again
-      if (this.x >= 500) {
-        this.x = x - 100;
+      if (this.x >= config.board.board_width) {
+        this.x = x - config.board.square_width;
       }
     };
 
@@ -45,11 +80,12 @@ class Enemy {
   }
 }
 
+// congrats modal close on page load, if open from previous game
 document.getElementById('modal-close').click();
+// congrats modal reload page if user wants to play again
 document.getElementById('play-again').addEventListener('click', function() {
   window.location.reload();
 });
-
 
 // player class - This class requires an update(), render() and
 // a handleInput() method since we are letting the user
@@ -74,13 +110,13 @@ class Player {
 
       // ... track the positions of each enemy and player
       // ... update variables for each entity on position
-      // ... when variables are equal or close, call collision function
+      // ... when variables are equal or close, reset player position
       for (let enemy of allEnemies) {
         let enemyX = enemy.x;
         let enemyY = enemy.y;
         if (
           this.y === enemyY &&
-          (this.x < Math.ceil(enemyX) + 10 && this.x > Math.floor(enemyX) - 10)
+          (this.x < Math.ceil(enemyX) + (config.board.square_width / 2) && this.x > Math.floor(enemyX) - (config.board.square_width / 2))
         ) {
           this.reset();
         }
@@ -88,7 +124,7 @@ class Player {
 
       // check for win by checking position, if reached river, then
       // toggle congrats modal and pause animation
-      if (this.y === -15) {
+      if (this.y === config.board.win_pos) {
         this.wonGame = true;
         document.getElementById('modal-link').click();
       }
@@ -105,20 +141,20 @@ class Player {
       // pressed. && conditions handle canvas boundaries for the player
 
       // ... key up && conditional for top of grid
-      if (input === 'up' && this.y > 0) {
-        this.y -= 80;
+      if (input === 'up' && this.y > config.board.top_left_bound) {
+        this.y -= config.board.y_movement;
       }
       // ... key down && conditional for bottom of grid
-      else if (input === 'down' && this.y < 375) {
-        this.y += 80;
+      else if (input === 'down' && this.y < config.board.bottom_bound) {
+        this.y += config.board.y_movement;
       }
       // ... key left && conditional for left side of grid
-      else if (input === 'left' && this.x > 0) {
-        this.x -= 100;
+      else if (input === 'left' && this.x > config.board.top_left_bound) {
+        this.x -= config.board.square_width;
       }
       // ... key right && conditional for right side of grid
-      else if (input === 'right' && this.x < 400) {
-        this.x += 100;
+      else if (input === 'right' && this.x < config.board.right_bound) {
+        this.x += config.board.square_width;
       }
     };
 
@@ -133,11 +169,11 @@ class Player {
 
 // Instantiate objects.
 // ... Place the player object in a variable called player
-const player = new Player(200, 385);
+const player = new Player(config.player.initialX, config.player.initialY);
 // ... Place the enemy objects in new variables
-const enemy1 = new Enemy(0, 65);
-const enemy2 = new Enemy(0, 145);
-const enemy3 = new Enemy(0, 225);
+const enemy1 = new Enemy(config.enemy1.initialX, config.enemy1.initialY);
+const enemy2 = new Enemy(config.enemy2.initialX, config.enemy2.initialY);
+const enemy3 = new Enemy(config.enemy3.initialX, config.enemy3.initialY);
 // ... Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3];
 
