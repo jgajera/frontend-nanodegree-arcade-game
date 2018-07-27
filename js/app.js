@@ -2,7 +2,7 @@
 "use strict";
 
 // set initial object to be reused/used throughout this file's code
-var config = {
+let config = {
   "player": {
     "initialX": 200,
     "initialY": 385
